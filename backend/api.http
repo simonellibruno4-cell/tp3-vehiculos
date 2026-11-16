@@ -1,0 +1,35 @@
+### 1) registrar un nuevo usuario
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "nombre": "Bruno",
+  "email": "bruno@email.com",
+  "contraseña": "123456"
+}
+
+### 2) iniciar sesión - copia el token que te devuelve la respuesta
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "bruno@email.com",
+  "contraseña": "123456"
+}
+
+### 3) obtener todos los vehículos (ruta protegida)
+GET http://localhost:4000/api/vehiculos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJicnVub0BlbWFpbC5jb20iLCJpYXQiOjE3OTQyNzQ5OTMsImV4cCI6MTc5NDI4OTM5M30.0qTtkj9Mzrrh5FhjLaSKunX2-_blUizSdUd38DYS7S8
+
+### 4) registrar un nuevo vehículo (ruta protegida)
+POST http://localhost:4000/api/vehiculos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJicnVub0BlbWFpbC5jb20iLCJpYXQiOjE3OTQyNzQ5OTMsImV4cCI6MTc5NDI4OTM5M30.0qTtkj9Mzrrh5FhjLaSKunX2-_blUizSdUd38DYS7S8
+
+{
+  "marca": "Ford",
+  "modelo": "Ranger",
+  "patente": "AB123CD",
+  "año": 2022,
+  "capacidad_de_carga": 1500.00
+}
